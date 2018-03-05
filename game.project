@@ -5,7 +5,7 @@ custom_resources =
 dependencies = 
 
 [bootstrap]
-main_collection = /main/example.collectionc
+main_collection = /example/example.collectionc
 render = /builtins/render/default.renderc
 
 [input]
