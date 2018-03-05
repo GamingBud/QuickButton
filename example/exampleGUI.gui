@@ -1,4 +1,4 @@
-script: "/main/QuickButton.gui_script"
+script: "/QuickButton/QuickButton.gui_script"
 fonts {
   name: "system_font"
   font: "/builtins/fonts/system_font.font"
