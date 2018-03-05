@@ -1,0 +1,58 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("Quick_Button") then
+		Create_Button(message[1],message[2],message[3],message[4],message[5])
+	end
+end
+
+function on_input(self, action_id, action)
+	Highlight_Button({x=action.x,y=action.y})
+	if action_id == hash("msL") and action.released then
+		Click_Button(vmath.vector3(action.x,action.y,0))
+	end
+end
+
+gui_buttons = {}
+gui_btn_owners = {}
+
+total_buttons = 0
+function Create_Button(owner, order, pos, font, text)
+	total_buttons = total_buttons + 1
+	local btns = total_buttons
+	local metrics = gui.get_text_metrics(font, text .. "aa") -- "aa" is to add two extra characters to create margins
+	gui_buttons[btns] = {
+		box = gui.new_box_node(pos, vmath.vector3(metrics.width,metrics.height,0)),
+		text = gui.new_text_node(pos, text)
+	}; gui.set_font(gui_buttons[btns].text, font); gui.set_color(gui_buttons[btns].box, vmath.vector4(.5,.5,.5,1))
+	gui_btn_owners[btns] = {
+		owner = owner,
+		order = order
+	}
+	
+	print("QUICK_BUTTON: BUTTON LIST")
+	pprint(gui_buttons)
+	print("QUICK_BUTTON: OWNER LIST")
+	pprint(gui_btn_owners)
+end
+
+function Click_Button(pos)
+	for b=1,total_buttons,1 do
+		if gui.pick_node(gui_buttons[b].box, pos.x, pos.y) then
+			msg.post(gui_btn_owners[b].owner, gui_btn_owners[b].order, {b})
+			print("Posted message to '" .. gui_btn_owners[b].owner .. "' with order to: " .. gui_btn_owners[b].order)
+		end
+	end
+end
+
+function Highlight_Button(pos)
+	for b=1,total_buttons,1 do
+		if gui.pick_node(gui_buttons[b].box, pos.x, pos.y) then
+			gui.set_color(gui_buttons[b].box, vmath.vector4(.8,.8,.8,1))
+		elseif gui.get_color(gui_buttons[b].box) == vmath.vector4(.8,.8,.8,1) then
+			gui.set_color(gui_buttons[b].box, vmath.vector4(.5,.5,.5,1))
+		end
+	end
+end
