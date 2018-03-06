@@ -16,7 +16,7 @@ Upon click, Quick_Button.gui will send a message back to the owner of the button
 ---
 # Version 0.2
 
-Added: Delete_Button, now allowing a single message to be sent to delete all code related to the button in question. Thanks to britzl for bringing to attention that I overlooked the fact that GUI cannot be deleted from another GUI script. 
+Added: Delete_Button, now allowing a single message to be sent to delete all code related to the button in question.
 
 Various simplifications and modifications.  
 
