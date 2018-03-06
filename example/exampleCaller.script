@@ -1,6 +1,6 @@
 function init(self)
-	msg.post("#exampleGUI", "Quick_Button", {"ThisObject", "example", vmath.vector3(650,400,0), "system_font", "Hello World!"})
-	-- (Within {message}) = Object with this script | order to be sent back on click | screen pos | font | text
+	msg.post("#exampleGUI", "Quick_Button", {order = "example", pos = vmath.vector3(650,600,0), font = "system_font", text = "Hello World!"})
+	-- (Within {message}) = order to be sent back on click | screen pos | font | text
 end
 
 function final(self)
@@ -12,6 +12,7 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("example") then
 		print("Initiating order from button press: " .. hash(message_id))
+		msg.post("#exampleGUI", "Delete_QB", {b=message.b})
 	end
 end
 
