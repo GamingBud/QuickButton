@@ -9,7 +9,7 @@ main_collection = /example/example.collectionc
 render = /builtins/render/default.renderc
 
 [input]
-game_binding = /input/game.input_bindingc
+game_binding = /example/example.input_bindingc
 
 [display]
 width = 1280
@@ -24,5 +24,5 @@ gravity_y = -5000.0
 shared_state = 1
 
 [library]
-include_dirs = QuickButton, example
+include_dirs = 
 
