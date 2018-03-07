@@ -7,8 +7,8 @@ Current functions as of 0.2:
 * Delete_Button  
 
 Use:  
-* Create_Button: msg.post("Quick_Button.gui", "Quick_Button", {order = order, pos = pos, font = font, text = text})
-* Delete_Button: msg.post("Quick_Button.gui", "Delete_QB", {b = Button number})  
+* Create_Button: msg.post("Quick_Button.gui_script location", "Quick_Button", {order = order, pos = pos, font = font, text = text})
+* Delete_Button: msg.post("Quick_Button.gui_script location", "Delete_QB", {b = Button number})  
 
 Upon click, Quick_Button.gui will send a message back to the owner of the button in question, which will be sent as:
 * message_id = order attached to button on creation, message = Button number, which is iterated in chronological order. 1 is the first button created, 2 is the next, etc.
