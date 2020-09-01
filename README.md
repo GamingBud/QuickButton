@@ -1,3 +1,8 @@
+# DEPRECATION NOTICE:
+This asset is severely out of date, as I haven't used it nor the engine it was built for in years. This asset does not conform to my current code standards. It is merely a nice prop for my code museum :)
+
+
+
 # QuickButton
 ---
 With QuickButton, you can simply send a single line message to have a button created. It includes press_detection and mouse-over highlighting. A message will be sent back to your script when the button is pressed. This allows you to complete necessary actions fluidly.
